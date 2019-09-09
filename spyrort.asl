@@ -19,9 +19,9 @@ state("Spyro-Win64-Shipping")
 //	byte inMenu : 0x03658048, 0x68, 0x218, 0x60;
 	byte inMenu : 0x034160D0, 0x20, 0x218, 0x60;
 
-	// Thanks to Zic3 for finding this one
 	// Set to 0 in title screen and main menu, set to 1 everywhere else
-	byte inGame : 0x03659C60, 0x7E8, 0x2D0, 0x70, 0xE0, 0x564;
+//	byte inGame : 0x03659C60, 0x7E8, 0x2D0, 0x70, 0xE0, 0x564;
+	byte inGame : 0x03415F30, 0xF0, 0x378, 0x564;
 
 	// From GVAS, search EIT_LastLevelPlayed (+ some fixed offset) to find S1, S2 and S3 levels being played
 	// string255 gvasRoot : 0x36A2010, 0x1E0, 0x0, 0x10, 0x20, 0x0;
