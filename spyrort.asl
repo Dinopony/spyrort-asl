@@ -73,7 +73,7 @@ startup
         settings.Add("s1_jacques",              true,    "Jacques (on exit)",               "s1");
         settings.Add("s1_gnorc_cove",           true,    "Gnorc Cove (on exit)",            "s1");
         settings.Add("s1_twilight_harbor",      true,    "Twilight Harbor (on exit)",       "s1");
-        settings.Add("s1_gnasty_gnorc",         true,   "Gnasty Gnorc (on exit)",          "s1");        
+        settings.Add("s1_gnasty_gnorc",         true,    "Gnasty Gnorc (on exit)",          "s1");        
 //      settings.Add("s1_kill_gnasty",          true,    "Gnasty Gnorc (on kill)",          "s1");
         settings.Add("s1_gnastys_loot",         true,    "Gnasty's Loot (on exit)",         "s1");
 
@@ -153,7 +153,7 @@ startup
         { "s1_cliff_town",              "/LS109_CliffTown/Maps/" },
         { "s1_ice_cavern",              "/LS110_IceCavern/Maps/" },
         { "s1_night_flight",            "/LS111_NightFlight/Maps/" },
-        { "s1_doctor_shemp",            "/LS112_DoctorShemp/Maps/" },
+        { "s1_doctor_shemp",            "/LS112_DrShemp/Maps/" },
         { "s1_alpine_ridge",            "/LS114_AlpineRidge/Maps/" },  
         { "s1_high_caves",              "/LS115_HighCaves/Maps/" },
         { "s1_wizard_peak",             "/LS116_WizardPeak/Maps/" },
@@ -163,17 +163,19 @@ startup
         { "s1_misty_bog",               "/LS121_MistyBog/Maps/" },
         { "s1_tree_tops",               "/LS122_TreeTops/Maps/" },
         { "s1_wild_flight",             "/LS123_WildFlight/Maps/" },
-        { "s1_metalhead",               "/LS124_Metalhead/Maps/" },
+        { "s1_metalhead",               "/LS124_MetalHead/Maps/" },
         { "s1_dark_passage",            "/LS126_DarkPassage/Maps/" },
         { "s1_lofty_castle",            "/LS127_LoftyCastle/Maps/" },
         { "s1_haunted_towers",          "/LS128_HauntedTowers/Maps/" },
         { "s1_icy_flight",              "/LS129_IcyFlight/Maps/" },
         { "s1_jacques",                 "/LS130_Jacques/Maps/" },
         { "s1_gnorc_cove",              "/LS132_GnorcCove/Maps/" },
-        { "s1_twilight_harbor",         "/LS133_TwilightHarbor/Maps/" },
+        { "s1_twilight_harbor",         "/LS133_TwlightHarbour/Maps/" },
         { "s1_gnasty_gnorc",            "/LS134_GnastyGnorc/Maps/" },
         { "s1_gnastys_loot",            "/LS135_GnastyLoot/Maps/" },
         
+Dr Shemp, Metalhead, Twilight Harbor, Gnasty
+
         // Spyro 2 maps
         { "s2_glimmer",                 "/LS202_Glimmer/Maps/" },
         { "s2_idol_springs",            "/LS203_IdolSprings/Maps/" },
