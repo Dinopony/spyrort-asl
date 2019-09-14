@@ -173,8 +173,6 @@ startup
         { "s1_twilight_harbor",         "/LS133_TwlightHarbour/Maps/" },
         { "s1_gnasty_gnorc",            "/LS134_GnastyGnorc/Maps/" },
         { "s1_gnastys_loot",            "/LS135_GnastyLoot/Maps/" },
-        
-Dr Shemp, Metalhead, Twilight Harbor, Gnasty
 
         // Spyro 2 maps
         { "s2_glimmer",                 "/LS202_Glimmer/Maps/" },
