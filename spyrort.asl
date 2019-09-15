@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////
 ///
-///     Spyro Reignited Trilogy Autosplitter v1.1
+///     Spyro Reignited Trilogy Autosplitter v1.11
 ///   
 /////////////////////////////////////////////////////////////////
 ///
@@ -179,7 +179,7 @@ startup
         { "s2_idol_springs",            "/LS203_IdolSprings/Maps/" },
         { "s2_colossus",                "/LS204_Colossus/Maps/" },
         { "s2_hurricos",                "/LS205_Hurricos/Maps/" },
-        { "s2_sunny_beach",             "/LS206_sunny_beach/Maps/" },
+        { "s2_sunny_beach",             "/LS206_SunnyBeach/Maps/" },
         { "s2_aquaria_towers",          "/LS207_AquariaTowers/Maps/" },
         { "s2_crushs_dungeon",          "/LS208_CrushsDungeon/Maps/" },
         { "s2_ocean_speedway",          "/LS209_OceanSpeedway/Maps/" },
