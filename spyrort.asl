@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////
 ///
-///     Spyro Reignited Trilogy Autosplitter v1.11
+///     Spyro Reignited Trilogy Autosplitter v1.12
 ///   
 /////////////////////////////////////////////////////////////////
 ///
@@ -24,7 +24,7 @@ state("Spyro-Win64-Shipping")
     byte inGame : 0x03415F30, 0xF0, 0x378, 0x564;
 
     // Counts Ripto's 3rd phase health (init at 8 from the very beginning of Ripto 1 fight, can be frozen at 0 to end the fight)
-    byte healthRipto3 : 0x03415F30, 0x88, 0x48, 0x138, 0x140, 0x8, 0x1D0, 0x134;
+    byte healthRipto3 : 0x03415F30, 0x110, 0x50, 0x140, 0x8, 0x1D0, 0x134;    
 
     // Counts Sorceress's 2nd phase health (init at 10 from the very beginning of Sorc 1 fight, can be frozen at 0 to end the fight)
 //    byte healthSorceress2 : 0x0;    // TODO
@@ -39,7 +39,7 @@ state("Spyro-Win64-Shipping")
     byte isNotLoading : 0x034149E8, 0x18, 0xE0, 0x4A8, 0xE19;
     byte inMenu : 0x03658048, 0x68, 0x218, 0x60;
     byte inGame : 0x03659C60, 0x7E8, 0x2D0, 0x70, 0xE0, 0x564;
-    byte healthRipto3 : 0x03415F30, 0x110, 0x50, 0x140, 0x8, 0x1D0, 0x134;
+    byte healthRipto3 : 0x03415F30, 0x88, 0x48, 0x138, 0x140, 0x8, 0x1D0, 0x134;
     string255 gvasRoot : 0x36A2010, 0x1E0, 0x0, 0x10, 0x20, 0x0;
 }
 */
@@ -163,7 +163,8 @@ startup
     settings.Add("s2", true, "Spyro 2: Ripto's Rage!");
         settings.Add("s2_first", true, "Level exits (first time)", "s2");
         settings.Add("s2_everytime", true, "Level exits (every time)", "s2");
-//      settings.Add("s2_kill_ripto", true, "Ripto (on last blow)", "s2");
+        settings.Add("s2_enter_ripto", false, "Enter Ripto's Arena", "s2");
+        settings.Add("s2_kill_ripto", true, "Ripto (on last blow) [EXPERIMENTAL]", "s2");
 
     settings.Add("s3", true, "Spyro: Year of the Dragon");
         settings.Add("s3_first", true, "Level exits (first time)", "s3");
@@ -248,19 +249,26 @@ split
 
             if(shouldAutosplit)
             {
-                print("Autosplitting going from map '" + old.map.ToString() + "' to map '" + current.map.ToString() + "'");
+//              print("Autosplitting going from map '" + old.map.ToString() + "' to map '" + current.map.ToString() + "'");
                 vars.alreadyTriggeredSplits.Add(entry.Key);
                 return true;
             }
         }
     }
 
+    if(current.map == vars.maps["s2_riptos_arena"].Item1)
+    {
+        // "Enter Ripto's Arena" specific handling
+        if(settings["s2_enter_ripto"] && old.map != current.map)
+            return true;
+        
+        // "Ripto (on last blow)" specific handling
+        if(settings["s2_kill_ripto"] && old.healthRipto3 == 1 && current.healthRipto3 == 0)
+            return true;
+    }
+
     // Gnasty Gnorc kill specific handling
 //    if(settings["s1_kill_gnasty"] && current.map == vars.maps["s1_gnasty_gnorc"].Item1)
-//        return true;
-
-    // Ripto (last blow) specific handling
-//    if(settings["s2_kill_ripto"] && old.healthRipto3 == 1 && current.healthRipto3 == 0 && current.map == vars.maps["s2_riptos_arena"].Item1)
 //        return true;
 
     // Sorceress (last blow) specific handling
