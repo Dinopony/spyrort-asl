@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////
 ///
-///     Spyro Reignited Trilogy Autosplitter v1.12
+///     Spyro Reignited Trilogy Autosplitter v1.13
 ///   
 /////////////////////////////////////////////////////////////////
 ///
@@ -154,6 +154,7 @@ startup
     };
 
     settings.Add("reset", false, "Reset timer on title screen");
+    settings.Add("ignore_fast_exits", true, "Ignore fast exits (time spent in level < 15s)");
 
     settings.Add("s1", true, "Spyro the Dragon");
         settings.Add("s1_first", true, "Level exits (first time)", "s1");
@@ -198,6 +199,7 @@ init
     }
 
     vars.alreadyTriggeredSplits = new HashSet<string>();
+    vars.lastLevelExitTimestamp = 0;
 }
 
 update
@@ -238,6 +240,12 @@ split
         if(old.map != mapID || current.map == mapID || current.map == null)
             continue;
 
+        bool isFastExit = (timer.CurrentTime.GameTime.Value.TotalSeconds - vars.lastLevelExitTimestamp < 15);
+        vars.lastLevelExitTimestamp = timer.CurrentTime.GameTime.Value.TotalSeconds;
+        
+        if(settings["ignore_fast_exits"] && isFastExit)
+            break;
+
         // This autosplit needs to be verified if it's always enabled, or if it's enabled for first exit check and it has not yet been triggered.
         if(settings[splitCode + "_everytime"] || (settings[splitCode + "_first"] && !vars.alreadyTriggeredSplits.Contains(entry.Key)))
         {
@@ -254,6 +262,8 @@ split
                 return true;
             }
         }
+
+        break;
     }
 
     if(current.map == vars.maps["s2_riptos_arena"].Item1)
