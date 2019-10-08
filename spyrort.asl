@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////
 ///
-///     Spyro Reignited Trilogy Autosplitter v1.13
+///     Spyro Reignited Trilogy Autosplitter v1.14
 ///   
 /////////////////////////////////////////////////////////////////
 ///
@@ -216,6 +216,7 @@ start
     if(current.inGame == 1 && old.inGame == 0)
     {
         vars.alreadyTriggeredSplits.Clear();
+        vars.lastLevelExitTimestamp = 0;
         return true;
     }
     
